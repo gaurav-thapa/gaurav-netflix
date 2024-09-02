@@ -6,7 +6,12 @@ import MovieList from "./MovieList";
 const SecondaryContainer = () => {
   useFetchMovies();
   const movies = useSelector((store) => store.movie);
-  if(!movies){
+  if (
+    !movies.nowPlayingMovies ||
+    !movies.popularMovies ||
+    !movies.topRatedMovies ||
+    !movies.upcomingMovies
+  ) {
     return;
   }
   const nowPlayingMovies = movies.nowPlayingMovies;

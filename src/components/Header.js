@@ -36,17 +36,14 @@ const Header = () => {
   };
   return (
     <div className="z-10 flex justify-between items-center gap-4 p-4 bg-gradient-to-b from-black to-transparent text-white">
-      <div className="flex gap-4 items-center">
-        <div className="text-red-600  font-bold text-2xl">{APP_NAME}</div>
-        <Link to={"/"} className="font-bold">
-          Home
-        </Link>
+      <div className="text-nowrap gap-4 items-center">
+        <div className="text-red-600 flex  font-bold text-2xl">{APP_NAME}</div>
       </div>
       <div className="flex gap-10">
         <div>
           <button
             onClick={toggleGptSearchViewHandler}
-            className="bg-purple-600 hover:bg-purple-700 py-1 px-2 rounded-lg"
+            className="text-nowrap bg-purple-600 hover:bg-purple-700 py-1 px-2 rounded-lg"
           >
             GPT Search
           </button>

@@ -5,11 +5,13 @@ import {
   TOP_RATED_MOVIES_API,
   UPCOMING_MOVIES_API,
 } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { movieSliceActions } from "../store/movieSlice";
 
 const useFetchMovies = () => {
   const dispatch = useDispatch();
+  const movies = useSelector((store) => store.movie);
+
   const getMovies = async (api) => {
     const movieRes = await fetch(api, API_OPTIONS);
     const movieData = await movieRes.json();
@@ -29,7 +31,13 @@ const useFetchMovies = () => {
     );
   };
   useEffect(() => {
-    getAllMovieData();
+    if (
+      !movies.popularMovies ||
+      !movies.topRatedMovies ||
+      !movies.upcomingMovies
+    ) {
+      getAllMovieData();
+    }
   }, []);
 };
 export default useFetchMovies;

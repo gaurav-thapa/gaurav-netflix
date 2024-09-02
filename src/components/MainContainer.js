@@ -12,7 +12,7 @@ const MainContainer = () => {
   // console.log("mm - ", mainMovie);
   const { id, original_title, overview } = mainMovie;
   return (
-    <div className="relative -top-28 -z-10">
+    <div className="h-screen relative -top-28 -z-10">
       <div className="relative">
         <VideoBackground id={id} />
         <VideoTitle title={original_title} overview={overview} />
